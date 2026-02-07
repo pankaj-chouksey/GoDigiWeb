@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --mint-primary: #A7E8E1;
+    --mint-light: #CCFBF1;
+    --mint-dark: #7DD3C7;
+    --dark-bg: #0A0A0A;
+    --dark-surface: #1A1A1A;
+  }
+
+  body {
+    @apply bg-white dark:bg-dark-900 text-gray-900 dark:text-white transition-colors duration-300;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-mint-200 to-mint-400 bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply bg-white/80 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10;
+  }
+
+  .glow-mint {
+    box-shadow: 0 0 20px rgba(167, 232, 225, 0.3);
+  }
+
+  .glow-mint-strong {
+    box-shadow: 0 0 40px rgba(167, 232, 225, 0.5);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-dark-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-mint-200/50 dark:bg-mint-200/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-mint-200/70 dark:bg-mint-200/50;
+}
+
