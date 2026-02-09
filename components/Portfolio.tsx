@@ -16,6 +16,15 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 3,
+    title: 'FrameYourWay - Custom Framing',
+    description: 'Custom picture framing with real-time preview',
+    images: ['/images/frameyourway1.jpeg', '/images/frameyourway2.jpeg', '/images/frameyourway3.png'],
+    github: 'https://github.com',
+    liveUrl: 'https://frameyourway.in',
+    tags: ['React', 'Express', 'Stripe']
+  },
+  {
     id: 1,
     title: '11PM - Late Night Food Delivery',
     description: 'Food delivery platform for late-night cravings',
@@ -28,25 +37,16 @@ const projects: Project[] = [
     id: 2,
     title: 'Adhyayan - Learning Platform',
     description: 'Interactive educational platform',
-    images: ['/images/adhyayan.png', '/images/adhyayan.png', '/images/adhyayan.png'],
+    images: ['/images/adhyayan1.jpeg', '/images/adhyayan2.jpeg', '/images/adhyayan3.jpeg'],
     github: 'https://github.com',
     liveUrl: 'https://adhyayan.com',
     tags: ['Next.js', 'TypeScript', 'PostgreSQL']
   },
   {
-    id: 3,
-    title: 'FrameYourWay - Custom Framing',
-    description: 'Custom picture framing with real-time preview',
-    images: ['/images/frameyourway.png', '/images/frameyourway.png', '/images/frameyourway.png'],
-    github: 'https://github.com',
-    liveUrl: 'https://frameyourway.com',
-    tags: ['React', 'Express', 'Stripe']
-  },
-  {
     id: 4,
     title: 'GetStay - Hotel Booking',
     description: 'Modern hotel booking platform',
-    images: ['/images/getstay.png', '/images/getstay.png', '/images/getstay.png'],
+    images: ['/images/getstay1.jpeg', '/images/getstay2.jpeg', '/images/getstay3.jpeg'],
     github: 'https://github.com',
     liveUrl: 'https://getstay.com',
     tags: ['Vue.js', 'Node.js', 'Redis']
@@ -55,7 +55,7 @@ const projects: Project[] = [
     id: 5,
     title: 'Radhe Fitness - Gym Management',
     description: 'Complete gym management system',
-    images: ['/images/radhefitness.png', '/images/radhefitness.png', '/images/radhefitness.png'],
+    images: ['/images/radhefitness1.jpeg', '/images/radhefitness2.jpeg', '/images/radhefitness3.jpeg'],
     github: 'https://github.com',
     liveUrl: 'https://radhefitness.com',
     tags: ['React', 'Firebase', 'Tailwind']
@@ -64,7 +64,16 @@ const projects: Project[] = [
     id: 6,
     title: 'Yuvi Gym - Fitness Tracking',
     description: 'Personal fitness tracking app',
-    images: ['/images/yuvigym.png', '/images/yuvigym.png', '/images/yuvigym.png'],
+    images: ['/images/yuvigym1.jpeg', '/images/yuvigym2.jpeg', '/images/yuvigym3.jpeg'],
+    github: 'https://github.com',
+    liveUrl: 'https://yuvigym.com',
+    tags: ['React Native', 'Node.js', 'MongoDB']
+  },
+  {
+    id: 7,
+    title: 'Yuvi Gym - Fitness Tracking',
+    description: 'Personal fitness tracking app',
+    images: ['/images/boysstay1.jpeg', '/images/boysstay2.jpeg', ],
     github: 'https://github.com',
     liveUrl: 'https://yuvigym.com',
     tags: ['React Native', 'Node.js', 'MongoDB']

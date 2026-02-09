@@ -27,7 +27,7 @@ const teamMembers = [
     }
   },
   {
-    name: 'Emily Rodriguez',
+    name: 'pankaj',
     role: 'UX Designer',
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=600&fit=crop',
     bio: 'Crafting user experiences that delight and convert',
