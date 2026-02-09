@@ -289,8 +289,8 @@ export default function Hero() {
             className="hidden lg:flex items-center justify-center gap-4 min-h-[500px]"
           >
             {[
-              { name: 'Pankaj Chouksey', role: 'UI/UX Designer', image: 'images/pankaj.jpg' },
               { name: 'Om Pawar', role: 'Lead Developer', image: 'images/ompawar.jpeg' },
+              { name: 'Pankaj Chouksey', role: 'UI/UX Designer', image: 'images/pankaj.jpg' },
               { name: 'Jatin Sethiya', role: 'Management lead', image: 'images/jatin.jpeg' },
             ].map((member, index) => {
               const positions = [
