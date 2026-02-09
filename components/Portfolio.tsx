@@ -73,104 +73,115 @@ const projects: Project[] = [
 
 const ImageCarousel = ({ images }: { images: string[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [isDragging, setIsDragging] = useState(false)
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const containerRef = useRef<HTMLDivElement>(null)
 
+  // Auto-play carousel
   useEffect(() => {
-    if (isDragging) return
+    if (!isAutoPlaying || images.length <= 1) return
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length)
-    }, 3000)
+    }, 4000)
 
     return () => clearInterval(interval)
-  }, [images.length, isDragging])
+  }, [images.length, isAutoPlaying])
 
-  useEffect(() => {
-    if (scrollRef.current && !isDragging) {
-      scrollRef.current.scrollTo({
-        left: currentIndex * scrollRef.current.offsetWidth,
-        behavior: 'smooth'
-      })
-    }
-  }, [currentIndex, isDragging])
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 5000)
   }
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length)
+  const handlePrev = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    goToSlide((currentIndex - 1 + images.length) % images.length)
   }
 
-  const handleScroll = () => {
-    if (scrollRef.current && isDragging) {
-      const scrollLeft = scrollRef.current.scrollLeft
-      const width = scrollRef.current.offsetWidth
-      const newIndex = Math.round(scrollLeft / width)
-      setCurrentIndex(newIndex)
-    }
+  const handleNext = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    goToSlide((currentIndex + 1) % images.length)
   }
+
+  if (images.length === 0) return null
 
   return (
-    <div className="relative group">
-      <div
-        ref={scrollRef}
-        onScroll={handleScroll}
-        onMouseDown={() => setIsDragging(true)}
-        onMouseUp={() => setIsDragging(false)}
-        onMouseLeave={() => setIsDragging(false)}
-        onTouchStart={() => setIsDragging(true)}
-        onTouchEnd={() => setIsDragging(false)}
-        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+    <div 
+      className="relative group overflow-hidden"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
+      {/* Images Container */}
+      <div 
+        ref={containerRef}
+        className="relative h-64 bg-gradient-to-br from-mint-100 to-mint-200 dark:from-mint-900/20 dark:to-mint-800/20"
       >
         {images.map((image, index) => (
-          <div
+          <motion.div
             key={index}
-            className="min-w-full snap-center"
+            initial={false}
+            animate={{
+              opacity: index === currentIndex ? 1 : 0,
+              scale: index === currentIndex ? 1 : 1.1,
+              zIndex: index === currentIndex ? 1 : 0
+            }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="absolute inset-0"
           >
             <img
               src={image}
               alt={`Project image ${index + 1}`}
-              className="w-full h-48 object-cover"
+              className="w-full h-full object-cover"
               draggable={false}
             />
-          </div>
+          </motion.div>
         ))}
+        
+        {/* Hover Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-mint-200/20 via-transparent to-mint-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
       </div>
 
-      {/* Navigation Buttons */}
-      <button
-        onClick={handlePrev}
-        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-        aria-label="Previous image"
-      >
-        <ChevronLeft size={20} />
-      </button>
-      <button
-        onClick={handleNext}
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-        aria-label="Next image"
-      >
-        <ChevronRight size={20} />
-      </button>
-
-      {/* Dots Indicator */}
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-        {images.map((_, index) => (
+      {/* Navigation Buttons - Only show if more than 1 image */}
+      {images.length > 1 && (
+        <>
           <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-1.5 h-1.5 rounded-full transition-all ${
-              index === currentIndex
-                ? 'bg-white w-6'
-                : 'bg-white/50 hover:bg-white/75'
-            }`}
-            aria-label={`Go to image ${index + 1}`}
-          />
-        ))}
-      </div>
+            onClick={handlePrev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-20 hover:scale-110"
+            aria-label="Previous image"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={handleNext}
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-20 hover:scale-110"
+            aria-label="Next image"
+          >
+            <ChevronRight size={20} />
+          </button>
+
+          {/* Dots Indicator */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  goToSlide(index)
+                }}
+                className={`transition-all duration-300 rounded-full ${
+                  index === currentIndex
+                    ? 'bg-white w-8 h-2'
+                    : 'bg-white/60 hover:bg-white/90 w-2 h-2'
+                }`}
+                aria-label={`Go to image ${index + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )
 }
@@ -190,13 +201,9 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       whileHover={{ y: -8, scale: 1.02 }}
       className="group relative"
     >
-      <div className="glass rounded-3xl overflow-hidden border-2 border-mint-200/20 dark:border-mint-400/20 hover:border-mint-300/40 dark:hover:border-mint-300/40 transition-all duration-500 h-full flex flex-col">
+      <div className="glass rounded-3xl overflow-hidden border-2 border-mint-200/20 dark:border-mint-400/20 hover:border-mint-300/40 dark:hover:border-mint-300/40 transition-all duration-500 h-full flex flex-col shadow-lg hover:shadow-2xl">
         {/* Image Carousel */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-mint-100 to-mint-200 dark:from-mint-900/20 dark:to-mint-800/20">
-          <ImageCarousel images={project.images} />
-          {/* Hover Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-mint-200/20 via-transparent to-mint-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        </div>
+        <ImageCarousel images={project.images} />
 
         {/* Content Below Image */}
         <div className="p-6 flex flex-col flex-grow">

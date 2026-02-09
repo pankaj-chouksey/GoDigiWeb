@@ -5,10 +5,7 @@ import { ArrowRight } from 'lucide-react'
 
 export default function CTA() {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      {/* Premium Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-mint-200/20 via-mint-400/10 to-dark-900" />
-      
+    <section id="contact" className="py-24 relative overflow-hidden bg-white dark:bg-dark-900">
       {/* Animated Blobs */}
       <motion.div
         animate={{
@@ -21,7 +18,7 @@ export default function CTA() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute top-0 left-0 w-96 h-96 bg-mint-200/20 rounded-full blur-3xl"
+        className="absolute top-0 left-0 w-96 h-96 bg-mint-200/40 dark:bg-mint-200/20 rounded-full blur-3xl"
       />
       <motion.div
         animate={{
@@ -34,7 +31,20 @@ export default function CTA() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute bottom-0 right-0 w-80 h-80 bg-mint-400/20 rounded-full blur-3xl"
+        className="absolute bottom-0 right-0 w-80 h-80 bg-mint-400/40 dark:bg-mint-400/20 rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{
+          x: [0, 50, 0],
+          y: [0, -30, 0],
+          scale: [1, 1.15, 1],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-mint-300/30 dark:bg-mint-300/15 rounded-full blur-3xl"
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -54,14 +64,14 @@ export default function CTA() {
             Let's Build Something{' '}
             <span className="text-gradient">Amazing</span>
           </h2>
-          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Ready to transform your digital presence? Get in touch and let's create something extraordinary together.
           </p>
           <motion.a
             href="#contact"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(167, 232, 225, 0.6)" }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-mint-200 to-mint-400 text-dark-900 font-semibold rounded-full text-lg glow-mint-strong transition-all"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-mint-200 to-mint-400 hover:from-mint-300 hover:to-mint-500 text-dark-900 font-semibold rounded-full text-lg transition-all shadow-lg hover:shadow-xl"
           >
             Request a Quote
             <ArrowRight className="w-6 h-6" />

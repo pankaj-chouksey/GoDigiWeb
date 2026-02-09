@@ -8,12 +8,14 @@ export default function Hero() {
     {
       title: 'web application',
       category: 'software',
-      image: '/assets/Healthcare & Telemedicine Mobile App.jpg',
+      image: '/assets/hero1.png',
+      type: 'image'
     },
     {
       title: 'UI/UX',
       category: 'design',
-      image: '/assets/download (13).jpg',
+      image: '/assets/hero2.mp4',
+      type: 'video'
     }
   ]
 
@@ -72,26 +74,35 @@ export default function Hero() {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group relative h-64 sm:h-80 lg:h-96 rounded-3xl overflow-hidden cursor-pointer"
             >
-              {/* Background Image */}
+              {/* Background Image or Video */}
               <div className="absolute inset-0">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                {project.type === 'video' ? (
+                  <video
+                    src={project.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                )}
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br opacity-40 group-hover:opacity-30 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-dark-900/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-dark-900/10 to-transparent" />
               </div>
 
               {/* Content */}
               <div className="relative h-full flex flex-col justify-between p-6 sm:p-8">
                 {/* Category Badge */}
-                <div className="self-start">
-                  <span className="inline-block px-4 py-2 rounded-full glass border border-white/20 text-white text-xs sm:text-sm font-medium uppercase tracking-wider">
-                    {project.category}
-                  </span>
+                <div className="self-start bg-none">
+       
                 </div>
 
                 {/* Project Title */}
