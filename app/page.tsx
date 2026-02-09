@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
+import UIUX from '@/components/UIUX'
 import Portfolio from '@/components/Portfolio'
 import WhyChooseUs from '@/components/WhyChooseUs'
 import About from '@/components/About'
@@ -13,6 +14,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
+      <UIUX />
       <Portfolio />
       <WhyChooseUs />
       <About />
