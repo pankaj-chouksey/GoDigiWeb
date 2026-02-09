@@ -127,7 +127,7 @@ export default function Footer() {
               transition={{ staggerChildren: 0.1 }}
               className="space-y-3 text-gray-600 dark:text-gray-400"
             >
-              {['hello@godigiweb.com', '+1 (555) 123-4567', 'Available 24/7'].map((item, index) => (
+              {['ompawar.work@gmail.com', '+91 95225 57828', 'Available 24/7'].map((item, index) => (
                 <motion.li
                   key={item}
                   initial={{ opacity: 0, x: -20 }}

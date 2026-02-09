@@ -289,9 +289,9 @@ export default function Hero() {
             className="hidden lg:flex items-center justify-center gap-4 min-h-[500px]"
           >
             {[
-              { name: 'Alex Johnson', role: 'Creative Director', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop' },
-              { name: 'Sarah Chen', role: 'Lead Developer', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=600&fit=crop' },
-              { name: 'Michael Torres', role: 'UI/UX Designer', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=600&fit=crop' },
+              { name: 'Pankaj Chouksey', role: 'UI/UX Designer', image: 'images/pankaj.jpg' },
+              { name: 'Om Pawar', role: 'Lead Developer', image: 'images/ompawar.jpeg' },
+              { name: 'Jatin Sethiya', role: 'Management lead', image: 'images/jatin.jpeg' },
             ].map((member, index) => {
               const positions = [
                 'translate-y-[-40px] rotate-[-8deg]',

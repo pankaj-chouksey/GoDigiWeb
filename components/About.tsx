@@ -119,7 +119,7 @@ export default function About() {
             </motion.div>
           </motion.div>
 
-          {/* Illustration */}
+          {/* Illustration with Image */}
           <motion.div
             initial={{ opacity: 0, x: 50, scale: 0.95 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -133,10 +133,22 @@ export default function About() {
             }}
             className="relative"
           >
-            {/* Rounded Abstract Background */}
-            <div className="relative w-full h-96 rounded-3xl overflow-hidden glass">
-              {/* Abstract Shapes */}
-              <div className="absolute inset-0 flex items-center justify-center">
+            {/* Image Container */}
+            <div className="relative w-full h-96 rounded-3xl overflow-hidden glass group">
+              {/* Background Image */}
+              <motion.img
+                src="images/banner.png"
+                alt="Team collaboration"
+                className="w-full h-full object-cover"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.6 }}
+              />
+              
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-900/60 via-dark-900/20 to-transparent" />
+              
+              {/* Animated Shapes Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <motion.div
                   animate={{
                     rotate: [0, 360],
@@ -147,28 +159,12 @@ export default function About() {
                     repeat: Infinity,
                     ease: "linear",
                   }}
-                  className="w-64 h-64 rounded-full bg-gradient-to-br from-mint-200/30 to-mint-400/30 blur-2xl"
-                />
-                <motion.div
-                  animate={{
-                    rotate: [360, 0],
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute w-48 h-48 rounded-full bg-gradient-to-br from-mint-400/20 to-mint-200/20 blur-xl"
+                  className="w-64 h-64 rounded-full bg-gradient-to-br from-mint-200/20 to-mint-400/20 blur-2xl"
                 />
               </div>
               
-              {/* Tech Elements */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-6xl font-bold text-mint-200/20 font-display">
-                  GW
-                </div>
-              </div>
+              {/* Glow Effect on Hover */}
+              <div className="absolute inset-0 glow-mint opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none" />
             </div>
           </motion.div>
         </div>

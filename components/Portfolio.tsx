@@ -5,9 +5,17 @@ import { ExternalLink, Github } from 'lucide-react'
 
 const projects = [
   {
+    title: 'Geststay',
+    category: 'Next.js • Hostels platform',
+    image: 'images/getstay.png',
+    description: 'Content-rich blog platform with SEO optimization',
+    liveUrl: 'https://getstay.in',
+    githubUrl: 'https://github.com/yourusername/blog-platform',
+  },
+  {
     title: 'Frameyourway',
     category: 'Next.js • E-Commerce platform',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+    image: 'images/frameyourway.png',
     description: 'Modern e-commerce solution with seamless checkout experience',
     liveUrl: 'https://frameyourway.in/',
     githubUrl: 'https://github.com/yourusername/ecommerce-platform',
@@ -15,7 +23,7 @@ const projects = [
   {
     title: 'Radhe Fitness',
     category: 'React • Fitness platform',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+    image: 'images/radhefitness.png',
     description: 'Analytics dashboard with real-time data visualization',
     liveUrl: 'https://Radhefitness.in',
     githubUrl: 'https://github.com/yourusername/saas-dashboard',
@@ -23,7 +31,7 @@ const projects = [
   {
     title: 'Yuvi Gym',
     category: 'Next.js • Futness website',
-    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
+    image: 'images/yuvigym.png',
     description: 'Premium corporate website with modern design',
     liveUrl: 'https://yuvi-gym.vercel.app/',
     githubUrl: 'https://github.com/yourusername/corporate-website',
@@ -31,26 +39,18 @@ const projects = [
   {
     title: '11 PM Gaming Cafe',
     category: 'React • Landing Page',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop',
+    image: 'images/11pm.png',
     description: 'Stunning landing page for mobile application',
     liveUrl: 'https://11-pm-games.vercel.app/',
     githubUrl: 'https://github.com/yourusername/mobile-app-landing',
   },
   {
-    title: 'Portfolio Website',
-    category: 'Next.js • Portfolio',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop',
-    description: 'Creative portfolio showcase with smooth animations',
-    liveUrl: 'https://example.com/portfolio-demo',
+    title: 'Adhyayan',
+    category: 'Next.js • Study Material platform',
+    image: 'images/adhyayan.png',
+    description: 'Minimal and user friendly site for study material.',
+    liveUrl: 'https://adhyayan.space',
     githubUrl: 'https://github.com/yourusername/portfolio-website',
-  },
-  {
-    title: 'Blog Platform',
-    category: 'Next.js • Blog',
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop',
-    description: 'Content-rich blog platform with SEO optimization',
-    liveUrl: 'https://example.com/blog-platform',
-    githubUrl: 'https://github.com/yourusername/blog-platform',
   },
 ]
 
@@ -92,7 +92,7 @@ function ProjectCard({ project, index, itemVariants }: { project: any; index: nu
               aria-label={`View ${project.title} live demo`}
               onClick={(e) => e.stopPropagation()}
             >
-              <ExternalLink className="w-5 h-5" />
+              <ExternalLink className="w-5 h-5 text-black" />
             </motion.a>
             <motion.a
               href={project.githubUrl}
@@ -104,7 +104,7 @@ function ProjectCard({ project, index, itemVariants }: { project: any; index: nu
               aria-label={`View ${project.title} on GitHub`}
               onClick={(e) => e.stopPropagation()}
             >
-              <Github className="w-5 h-5" />
+              <Github className="w-5 h-5 text-black" />
             </motion.a>
           </div>
         </div>
