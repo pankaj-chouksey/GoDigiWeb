@@ -125,7 +125,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
       {/* Images Container */}
       <div 
         ref={containerRef}
-        className="relative h-64 bg-gradient-to-br from-mint-100 to-mint-200 dark:from-mint-900/20 dark:to-mint-800/20"
+        className="relative h-0 pb-[56.25%] bg-gradient-to-br from-mint-100 to-mint-200 dark:from-mint-900/20 dark:to-mint-800/20"
       >
         {images.map((image, index) => (
           <motion.div

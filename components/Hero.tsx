@@ -7,15 +7,15 @@ export default function Hero() {
   const featuredProjects = [
     {
       title: 'web application',
-      category: 'software',
-      image: '/assets/hero1.png',
-      type: 'image'
-    },
-    {
-      title: 'UI/UX',
       category: 'design',
       image: '/assets/hero2.mp4',
       type: 'video'
+    },
+    {
+      title: 'UI/UX',
+      category: 'software',
+      image: '/assets/hero1.png',
+      type: 'image'
     }
   ]
 

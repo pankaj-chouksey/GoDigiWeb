@@ -4,10 +4,17 @@ import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
+import { useTheme } from '@/contexts/ThemeContext'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { theme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,10 +51,19 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-3"
           >
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-mint-200 to-mint-400 flex items-center justify-center glow-mint">
-              <span className="text-dark-900 font-bold text-xl font-display">GW</span>
-            </div>
-            <span className="text-xl font-display font-bold text-gray-900 dark:text-white">GoDigiWeb</span>
+            {mounted ? (
+              <img 
+                src={theme === 'dark' ? '/darklogo.svg' : '/lightlogo.svg'} 
+                alt="GoDigiWeb Logo" 
+                className="h-12 w-auto"
+                onError={(e) => {
+                  console.error('Logo failed to load')
+                  e.currentTarget.style.display = 'none'
+                }}
+              />
+            ) : (
+              <div className="h-12 w-32 bg-gray-200 dark:bg-gray-700 animate-pulse rounded" />
+            )}
           </motion.a>
 
           {/* Desktop Navigation */}
