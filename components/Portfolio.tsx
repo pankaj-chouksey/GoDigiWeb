@@ -26,11 +26,11 @@ const projects: Project[] = [
   },
   {
     id: 1,
-    title: '11PM - Late Night Food Delivery',
-    description: 'Food delivery platform for late-night cravings',
-    images: ['/images/11pm.png', '/images/11pm.png', '/images/11pm.png'],
+    title: 'Wes Foundation - School management platform',
+    description: 'Platform to manage the school',
+    images: ['/images/wes1.png', '/images/wes2.png', '/images/wes3.png'],
     github: 'https://github.com',
-    liveUrl: 'https://11pm.com',
+    liveUrl: 'https://clas.wazireducationsociety.org/login/',
     tags: ['React', 'Node.js', 'MongoDB']
   },
   {
@@ -39,7 +39,7 @@ const projects: Project[] = [
     description: 'Interactive educational platform',
     images: ['/images/adhyayan1.jpeg', '/images/adhyayan2.jpeg', '/images/adhyayan3.jpeg'],
     github: 'https://github.com',
-    liveUrl: 'https://adhyayan.com',
+    liveUrl: 'https://adhyayan.space',
     tags: ['Next.js', 'TypeScript', 'PostgreSQL']
   },
   {
@@ -48,7 +48,7 @@ const projects: Project[] = [
     description: 'Modern hotel booking platform',
     images: ['/images/getstay1.jpeg', '/images/getstay2.jpeg', '/images/getstay3.jpeg'],
     github: 'https://github.com',
-    liveUrl: 'https://getstay.com',
+    liveUrl: 'https://getstay.in',
     tags: ['Vue.js', 'Node.js', 'Redis']
   },
   {
@@ -57,7 +57,7 @@ const projects: Project[] = [
     description: 'Complete gym management system',
     images: ['/images/radhefitness1.jpeg', '/images/radhefitness2.jpeg', '/images/radhefitness3.jpeg'],
     github: 'https://github.com',
-    liveUrl: 'https://radhefitness.com',
+    liveUrl: 'https://radhefitness.in',
     tags: ['React', 'Firebase', 'Tailwind']
   },
   {
@@ -66,16 +66,16 @@ const projects: Project[] = [
     description: 'Personal fitness tracking app',
     images: ['/images/yuvigym1.jpeg', '/images/yuvigym2.jpeg', '/images/yuvigym3.jpeg'],
     github: 'https://github.com',
-    liveUrl: 'https://yuvigym.com',
+    liveUrl: 'https://yuvi-gym.vercel.app/',
     tags: ['React Native', 'Node.js', 'MongoDB']
   },
   {
     id: 7,
-    title: 'Yuvi Gym - Fitness Tracking',
-    description: 'Personal fitness tracking app',
+    title: 'Boys Stay Hostel - Hostel website',
+    description: 'Digital brochure of a Hostel ',
     images: ['/images/boysstay1.jpeg', '/images/boysstay2.jpeg', ],
     github: 'https://github.com',
-    liveUrl: 'https://yuvigym.com',
+    liveUrl: 'https://boyshostelbhopal.com',
     tags: ['React Native', 'Node.js', 'MongoDB']
   }
 ]

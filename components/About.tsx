@@ -4,18 +4,18 @@ import { motion } from 'framer-motion'
 
 const teamMembers = [
   {
-    name: 'Jatin',
-    role: 'Full Stack Developer',
+    name: 'Jatin Sethiya',
+    role: 'Marketing Lead',
     image: '/images/jatin.jpeg',
   },
   {
     name: 'Om Pawar',
-    role: 'UI/UX Designer',
+    role: 'Developer',
     image: '/images/ompawar.jpeg',
   },
   {
-    name: 'Pankaj',
-    role: 'Backend Developer',
+    name: 'Pankaj Chouksey',
+    role: 'UI/UX Designer',
     image: '/images/pankaj.jpg',
   }
 ]
@@ -123,51 +123,6 @@ export default function About() {
             </motion.div>
           ))}
         </div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ 
-            type: "spring",
-            stiffness: 100,
-            damping: 15,
-            delay: 0.5
-          }}
-          className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16"
-        >
-          <motion.div
-            whileHover={{ scale: 1.1, y: -5 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="text-center"
-          >
-            <div className="text-4xl font-bold text-gradient mb-2">
-              100+
-            </div>
-            <div className="text-sm text-gray-400">Projects</div>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.1, y: -5 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="text-center"
-          >
-            <div className="text-4xl font-bold text-gradient mb-2">
-              50+
-            </div>
-            <div className="text-sm text-gray-400">Clients</div>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.1, y: -5 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="text-center"
-          >
-            <div className="text-4xl font-bold text-gradient mb-2">
-              5+
-            </div>
-            <div className="text-sm text-gray-400">Years</div>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   )

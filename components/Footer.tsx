@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react'
+import { useTheme } from '@/contexts/ThemeContext'
+import { useState, useEffect } from 'react'
 
 const quickLinks = [
   { name: 'Home', href: '#home' },
@@ -11,14 +12,13 @@ const quickLinks = [
   { name: 'Contact', href: '#contact' },
 ]
 
-const socialLinks = [
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Mail, href: '#', label: 'Email' },
-]
-
 export default function Footer() {
+  const [mounted, setMounted] = useState(false)
+  const { theme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -68,30 +68,20 @@ export default function Footer() {
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-3 mb-4"
             >
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-mint-200 to-mint-400 flex items-center justify-center glow-mint">
-                <span className="text-dark-900 font-bold text-xl font-display">GW</span>
-              </div>
-              <span className="text-xl font-display font-bold text-gray-900 dark:text-white">GoDigiWeb</span>
+              {mounted ? (
+                <img 
+                  src={theme === 'dark' ? '/darklogo.svg' : '/lightlogo.svg'} 
+                  alt="GoDigiWeb Logo" 
+                  className="h-12 w-auto"
+                />
+              ) : (
+                <div className="h-12 w-32 bg-gray-200 dark:bg-gray-700 animate-pulse rounded" />
+              )}
             </motion.div>
-            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">
+            <p className="text-gray-600 dark:text-gray-400 max-w-md">
               Transforming businesses through premium web design and digital solutions. 
               Fast, modern, and results-driven.
             </p>
-            {/* Social Icons */}
-            <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-mint-400 dark:hover:text-mint-200 hover:border-mint-400/30 dark:hover:border-mint-200/30 transition-all"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </motion.a>
-              ))}
-            </div>
           </motion.div>
 
           {/* Quick Links */}
@@ -148,27 +138,11 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ type: "spring", stiffness: 100, damping: 15 }}
-          className="border-t border-gray-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center"
+          className="border-t border-gray-200 dark:border-white/10 pt-8 text-center"
         >
           <p className="text-gray-600 dark:text-gray-400 text-sm">
             © {new Date().getFullYear()} GoDigiWeb. All rights reserved.
           </p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <motion.a
-              href="#"
-              whileHover={{ scale: 1.05, y: -2 }}
-              className="text-gray-600 dark:text-gray-400 hover:text-mint-400 dark:hover:text-mint-200 text-sm transition-colors"
-            >
-              Privacy Policy
-            </motion.a>
-            <motion.a
-              href="#"
-              whileHover={{ scale: 1.05, y: -2 }}
-              className="text-gray-600 dark:text-gray-400 hover:text-mint-400 dark:hover:text-mint-200 text-sm transition-colors"
-            >
-              Terms of Service
-            </motion.a>
-          </div>
         </motion.div>
       </div>
     </footer>

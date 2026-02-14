@@ -68,7 +68,9 @@ export default function CTA() {
             Ready to transform your digital presence? Get in touch and let's create something extraordinary together.
           </p>
           <motion.a
-            href="#contact"
+            href="https://wa.me/919522557828?text=Hi%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20my%20project"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-mint-200 to-mint-400 hover:from-mint-300 hover:to-mint-500 text-dark-900 font-semibold rounded-full text-lg transition-all shadow-lg hover:shadow-xl"
